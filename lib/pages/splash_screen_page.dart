@@ -22,7 +22,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   void navigate() async {
     await Future.delayed(const Duration(seconds: 3));
-
+    await FirebaseAuth.instance.authStateChanges().first;
     final user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
